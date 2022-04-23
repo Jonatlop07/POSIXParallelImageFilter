@@ -29,10 +29,9 @@ void *applyFilter(void *data) {
   const int blockEnd = (threadNumber + 1) * (blockSize);
 
   int iterationLimit = blockEnd;
-  const int rest = rows - blockEnd;
   
   if (threadNumber == THREAD_NUM - 1) {
-    iterationLimit += rest;
+    iterationLimit += rows % THREAD_NUM;
   }
 
   for (int r = blockStart; r < iterationLimit; ++r) {
