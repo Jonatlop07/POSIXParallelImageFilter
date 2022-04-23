@@ -1,3 +1,0 @@
-/home/jonathan/Documentos/Universidad/ComputacionParalela/talleres/taller1/CMakeFiles/my-effect.dir
-/home/jonathan/Documentos/Universidad/ComputacionParalela/talleres/taller1/CMakeFiles/edit_cache.dir
-/home/jonathan/Documentos/Universidad/ComputacionParalela/talleres/taller1/CMakeFiles/rebuild_cache.dir
