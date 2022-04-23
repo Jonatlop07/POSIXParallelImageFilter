@@ -1,7 +1,7 @@
 #include <opencv2/opencv.hpp>
-#include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <pthread.h>
 
 int THREAD_NUM;
 
