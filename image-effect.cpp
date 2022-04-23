@@ -46,38 +46,38 @@ void *applyFilter(void *data) {
 	int neighbors = 0;
 
 	if (up >= 0 && left >= 0) {
-	  accumulation += (unsigned short int) imageToProcess->at<cv::Vec3b>(up, left)[ch];
+	  accumulation += (uchar) imageToProcess->at<cv::Vec3b>(up, left)[ch];
 	  ++neighbors;
 	}
 	if (up >= 0) {
-	  accumulation += (unsigned short int) imageToProcess->at<cv::Vec3b>(up, c)[ch];
+	  accumulation += (uchar) imageToProcess->at<cv::Vec3b>(up, c)[ch];
 	  ++neighbors;
 	}
 	if (up >= 0 && right < cols) {
-	  accumulation += (unsigned short int) imageToProcess->at<cv::Vec3b>(up, right)[ch];
+	  accumulation += (uchar) imageToProcess->at<cv::Vec3b>(up, right)[ch];
 	  ++neighbors;
 	}
 	if (right < cols) {
-	  accumulation += (unsigned short int) imageToProcess->at<cv::Vec3b>(r, right)[ch];
+	  accumulation += (uchar) imageToProcess->at<cv::Vec3b>(r, right)[ch];
 	  ++neighbors;
 	}
 	if (down < rows && right < cols) {
-	  accumulation += (unsigned short int) imageToProcess->at<cv::Vec3b>(down, right)[ch];
+	  accumulation += (uchar) imageToProcess->at<cv::Vec3b>(down, right)[ch];
 	  ++neighbors;
 	}
 	if (down < rows) {
-	  accumulation += (unsigned short int) imageToProcess->at<cv::Vec3b>(down, c)[ch];
+	  accumulation += (uchar) imageToProcess->at<cv::Vec3b>(down, c)[ch];
 	  ++neighbors;
 	}
 	if (down < rows && left >= 0) {
-	  accumulation += (unsigned short int) imageToProcess->at<cv::Vec3b>(down, left)[ch];
+	  accumulation += (uchar) imageToProcess->at<cv::Vec3b>(down, left)[ch];
 	  ++neighbors;
 	}
 	if (left >= 0) {
-	  accumulation += (unsigned short int) imageToProcess->at<cv::Vec3b>(r, left)[ch];
+	  accumulation += (uchar) imageToProcess->at<cv::Vec3b>(r, left)[ch];
 	  ++neighbors;
 	}
-	processedImage->at<cv::Vec3b>(r, c)[ch] = (unsigned short int) (accumulation / neighbors);
+	processedImage->at<cv::Vec3b>(r, c)[ch] = (uchar) (accumulation / neighbors);
       }
     }
   }
