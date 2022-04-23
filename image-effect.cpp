@@ -31,7 +31,7 @@ void *applyFilter(void *data) {
   int iterationLimit = blockEnd;
   const int rest = rows - blockEnd;
   
-  if (rest < blockSize) {
+  if (threadNumber == THREAD_NUM - 1) {
     iterationLimit += rest;
   }
 
