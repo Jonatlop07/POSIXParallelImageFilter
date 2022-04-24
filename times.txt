@@ -1,0 +1,117 @@
+______________________________
+Imagen: ./images/720.jpg
+Hilos			Tiempo (MM/SS)
+Image was successfully saved to a file
+1					0:00.22
+Image was successfully saved to a file
+2					0:00.18
+Image was successfully saved to a file
+4					0:00.16
+Image was successfully saved to a file
+8					0:00.16
+Image was successfully saved to a file
+16					0:00.15
+______________________________
+Imagen: ./images/1080.jpg
+Hilos			Tiempo (MM/SS)
+Image was successfully saved to a file
+1					0:00.34
+Image was successfully saved to a file
+2					0:00.25
+Image was successfully saved to a file
+4					0:00.20
+Image was successfully saved to a file
+8					0:00.19
+Image was successfully saved to a file
+16					0:00.19
+______________________________
+Imagen: ./images/4k.jpg
+Hilos			Tiempo (MM/SS)
+Image was successfully saved to a file
+1					0:00.99
+Image was successfully saved to a file
+2					0:00.60
+Image was successfully saved to a file
+4					0:00.41
+Image was successfully saved to a file
+8					0:00.36
+Image was successfully saved to a file
+16					0:00.35
+______________________________
+Imagen: ./images/720.jpg
+Hilos			Tiempo (MM/SS)
+Image was successfully saved to a file
+1					0:00.22
+Image was successfully saved to a file
+2					0:00.18
+Image was successfully saved to a file
+4					0:00.16
+Image was successfully saved to a file
+8					0:00.16
+Image was successfully saved to a file
+16					0:00.15
+______________________________
+Imagen: ./images/1080.jpg
+Hilos			Tiempo (MM/SS)
+Image was successfully saved to a file
+1					0:00.35
+Image was successfully saved to a file
+2					0:00.25
+Image was successfully saved to a file
+4					0:00.20
+Image was successfully saved to a file
+8					0:00.20
+Image was successfully saved to a file
+16					0:00.19
+______________________________
+Imagen: ./images/4k.jpg
+Hilos			Tiempo (MM/SS)
+Image was successfully saved to a file
+1					0:00.99
+Image was successfully saved to a file
+2					0:00.60
+Image was successfully saved to a file
+4					0:00.40
+Image was successfully saved to a file
+8					0:00.37
+Image was successfully saved to a file
+16					0:00.35
+______________________________
+Imagen: ./images/720.jpg
+Hilos			Tiempo (MM/SS)
+Image was successfully saved to a file
+1					0:00.22
+Image was successfully saved to a file
+2					0:00.18
+Image was successfully saved to a file
+4					0:00.16
+Image was successfully saved to a file
+8					0:00.16
+Image was successfully saved to a file
+16					0:00.15
+______________________________
+Imagen: ./images/1080.jpg
+Hilos			Tiempo (MM/SS)
+Image was successfully saved to a file
+1					0:00.34
+Image was successfully saved to a file
+2					0:00.25
+Image was successfully saved to a file
+4					0:00.20
+Image was successfully saved to a file
+8					0:00.19
+Image was successfully saved to a file
+16					0:00.19
+______________________________
+Imagen: ./images/4k.jpg
+Hilos			Tiempo (MM/SS)
+Image was successfully saved to a file
+1					0:00.99
+Image was successfully saved to a file
+2					0:00.60
+Image was successfully saved to a file
+4					0:00.41
+Image was successfully saved to a file
+8					0:00.36
+Image was successfully saved to a file
+16					0:00.35

@@ -6,6 +6,7 @@ find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 add_executable(my-effect image-effect.cpp )
 
+target_link_libraries(my-effect -lm)
 target_link_libraries(my-effect -lpthread)
 target_link_libraries(my-effect ${OpenCV_LIBS})
 

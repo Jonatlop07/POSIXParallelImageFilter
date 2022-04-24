@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <math.h>
 
 int THREAD_NUM;
 
@@ -11,7 +12,7 @@ struct threadData {
   cv::Mat *processedImage;
 };
 
-void *applyFilter(void *data) {
+void *applySepiaFilter(void *data) {
   struct threadData *currentThreadData = (threadData *) data;
   const int threadNumber = currentThreadData->threadNumber;
   const cv::Mat *imageToProcess = currentThreadData->imageToProcess;
@@ -23,18 +24,14 @@ void *applyFilter(void *data) {
   cols = imageToProcess->cols;
   channels = imageToProcess->channels();
 
-  const int blockSize = rows / THREAD_NUM;  
+  const int blockSize = (int) ceil(rows / THREAD_NUM);  
 
   const int blockStart = threadNumber * blockSize; 
   const int blockEnd = (threadNumber + 1) * (blockSize);
 
   int iterationLimit = blockEnd;
-  
-  if (threadNumber == THREAD_NUM - 1) {
-    iterationLimit += rows % THREAD_NUM;
-  }
 
-  for (int r = blockStart; r < iterationLimit; ++r) {
+  for (int r = blockStart; r < iterationLimit && r < rows; ++r) {
     for (int c = 0; c < cols; ++c) {
       for (int ch = 0; ch < channels; ++ch) {
 	const int left = c - 1;
@@ -87,7 +84,7 @@ void *applyFilter(void *data) {
 int main(int argc, char *argv[]) {
   const char *inputImageName = argv[1];
   const char *outputImageName = argv[2];
-  THREAD_NUM = *argv[3];
+  THREAD_NUM = atoi(argv[3]);
 
   pthread_t threads[THREAD_NUM];
   struct threadData threadsData[THREAD_NUM];
@@ -112,7 +109,7 @@ int main(int argc, char *argv[]) {
     r = pthread_create(
       &threads[currentThread],
       NULL,
-      applyFilter,
+      applySepiaFilter,
       (void *) &threadsData[currentThread]
     );
 
@@ -137,10 +134,10 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 
-  cv::namedWindow("HI");
+  /* cv::namedWindow("OutputImage");
   cv::imshow("HI", cv::imread(outputImageName));
   cv::waitKey(0);
-  cv::destroyWindow("HI");
+  cv::destroyWindow("OutputImage"); */
 
   free(outputImage);
 
