@@ -4,7 +4,7 @@
 #include <pthread.h>
 #include <math.h>
 
-int THREAD_NUM;
+int THREAD_NUM, rows, cols, channels, blockSize;
 
 struct threadData {
   int threadNumber;
@@ -12,19 +12,11 @@ struct threadData {
   cv::Mat *processedImage;
 };
 
-void *applySepiaFilter(void *data) {
+void *applyBlurFilter(void *data) {
   struct threadData *currentThreadData = (threadData *) data;
   const int threadNumber = currentThreadData->threadNumber;
   const cv::Mat *imageToProcess = currentThreadData->imageToProcess;
   cv::Mat *processedImage = currentThreadData->processedImage;
-
-  int cols, rows, channels; 
-
-  rows = imageToProcess->rows;
-  cols = imageToProcess->cols;
-  channels = imageToProcess->channels();
-
-  const int blockSize = (int) ceil(rows / THREAD_NUM);  
 
   const int blockStart = threadNumber * blockSize; 
   const int blockEnd = (threadNumber + 1) * (blockSize);
@@ -92,6 +84,11 @@ int main(int argc, char *argv[]) {
 
   const cv::Mat image = cv::imread(inputImageName);
   
+  rows = image.rows;
+  cols = image.cols;
+  channels = image.channels();
+  blockSize = (int) ceil(rows / THREAD_NUM);
+
   cv::Mat *outputImage = new cv::Mat(image.rows, image.cols, CV_8UC(image.channels()));
 
   if (image.empty()) {
@@ -109,7 +106,7 @@ int main(int argc, char *argv[]) {
     r = pthread_create(
       &threads[currentThread],
       NULL,
-      applySepiaFilter,
+      applyBlurFilter,
       (void *) &threadsData[currentThread]
     );
 
@@ -134,13 +131,7 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 
-  /* cv::namedWindow("OutputImage");
-  cv::imshow("HI", cv::imread(outputImageName));
-  cv::waitKey(0);
-  cv::destroyWindow("OutputImage"); */
-
   free(outputImage);
 
-  printf("Image was successfully saved to a file\n");
   return 0;
 }
